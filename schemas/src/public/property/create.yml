@@ -1,0 +1,24 @@
+paths:
+  /api/property/create:
+    post:
+      operationId: CreateProperty
+      tags:
+        - Property
+      summary: Create Property
+      security:
+        - ApiKey: []
+          ApiSecret: []
+      requestBody:
+        description: create property
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateProperty"
+      responses:
+        "200":
+          $ref: "#/components/responses/SuccessCreatePropertyResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalError"

@@ -1,0 +1,56 @@
+components:
+  schemas:
+    User:
+      description: Un usuario
+      type: object
+      properties:
+        id:
+          $ref: "#/components/schemas/id"
+        name:
+          description: El nombre del usuario
+          type: string
+          example: Peter
+        email:
+          description: El email del usuario
+          type: string
+          example: peterparker@spiderman.com
+        password:
+          description: La contraseña del usuario, que está encriptada con bcrypt.
+          type: string
+          example: $2b$12$WGI2R5P.MzTDAl6vS3s5JuaX6NgB0cqHGkozfKdkC4FsHoMHvAgQ6
+        phone:
+          description: El telefono del usuario
+          type: string
+          example: 0303456
+        link_whatsapp:
+          description: El enlace a whatsapp
+          type: string
+          example: url
+        status:
+          $ref: "#/components/schemas/status"
+        location:
+          description: La ubicacion de un usuario
+          type: object
+          properties:
+            city:
+              description: La ciudad de la ubicacion.
+              type: string
+              example: La loma
+            province:
+              description: La provincia de una ubicacion.
+              type: string
+              example: Tierra del fuego
+
+    LoginUser:
+      description: Logueo de user
+      type: object
+      properties:
+        email:
+          $ref: "#/components/schemas/User/properties/email"
+        password:
+          description: La contraseña del usuario
+          type: string
+          example: holabuendia
+      required:
+        - email
+        - password
